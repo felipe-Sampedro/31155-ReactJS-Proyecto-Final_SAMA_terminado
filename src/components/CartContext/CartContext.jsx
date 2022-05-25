@@ -1,0 +1,57 @@
+import React, { createContext, useState } from 'react'
+
+
+export const GlobalContext = createContext('')
+
+
+const CartContext = ({children}) => {
+    
+    const [carrito, setCarrito] = useState([])
+    const [qtyCompra, setqtyCompra] = useState(0)
+    const [itemCount, setItemCount] = useState()
+
+
+    const AddToCart = (producto,cantidadcomprada) => {
+        
+        setqtyCompra({...producto,qtyCompra:cantidadcomprada})
+        producto.cantidad=cantidadcomprada
+
+        const repetido = carrito.find((carr)=>carr.id=== Number(producto.id))
+
+        repetido ? carrito.map(p=> p.id===producto.id? setqtyCompra(cantidadcomprada) : 0) :setCarrito([...carrito,producto])
+
+        setItemCount(producto.cantidad)
+        console.log('cartwidget' + cantidadcomprada);
+    }
+
+    const AddItem = (item,quantity)=>{
+      const agregado = {item,quantity}
+    }
+
+
+    const removeItem = (id)=>{
+      const remover = carrito.filter((ref)=>ref.id !== id)
+
+      setCarrito(remover)
+
+    }
+
+    const isInCart = (id) =>{
+      return carrito.some(e => e.id===id)
+    }
+
+
+    const clear = () =>{
+      setCarrito([])
+      setqtyCompra(0)
+    }
+
+
+  return (
+    <GlobalContext.Provider value= {{carrito,setCarrito,qtyCompra,itemCount,setqtyCompra,AddToCart,removeItem,clear,isInCart}} >
+        {children}
+    </GlobalContext.Provider>
+  )
+}
+
+export default CartContext
