@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../CartContext/CartContext'
+import Formulario from '../Formulario/Formulario'
 
 
 const Cart = () => {
 
   const { carrito, removeItem, clear, qtyCompra } = useContext(GlobalContext)
+  const totalcosto = carrito.map((c) => c.price * c.cantidad).reduce((prev, curr) => prev + curr, 0)
 
   return (
     <>
@@ -22,7 +24,7 @@ const Cart = () => {
 
 
       )) : <div>
-        <h1>Carrito esta vacio</h1>
+        <h1>El carrito esta vacio</h1>
         <Link to="/">
           <button className='btn btn-info'>Volver a Comprar</button>
         </Link>
@@ -32,7 +34,8 @@ const Cart = () => {
 
       {carrito.length > 0 ? (
         <div>
-          <h1>Total: ${carrito.map((c) => c.price * c.cantidad).reduce((prev, curr) => prev + curr, 0)}</h1>
+          {/* <h1>Total: ${carrito.map((c) => c.price * c.cantidad).reduce((prev, curr) => prev + curr, 0)}</h1> */}
+          <h1>Total: ${totalcosto}</h1>
         </div>) :
         <></>
 
@@ -44,7 +47,11 @@ const Cart = () => {
           <button className='btn btn-success m-2'>Terminar mi compra</button>
         </div> 
         : <p></p>}
+      <div className='m-5'>
+        <Formulario total={totalcosto} compra={carrito} />
+      </div>
     </>
+
   )
 }
 
