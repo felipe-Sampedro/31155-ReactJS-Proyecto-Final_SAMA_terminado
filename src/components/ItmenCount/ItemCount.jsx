@@ -28,9 +28,9 @@ const ItemCount = ({item,onAdd,quantityToAdd}) => {
         <div className='d-flex justify-content-between p-2'>
             {quantityToAdd ===0 ?(
                <> 
-                    <button onClick={restar}>-</button>
+                    <button className="btn btn-danger" onClick={restar}>-</button>
                         <p>{counter}</p>
-                    <button onClick={sumar}>+</button>
+                    <button className="btn btn-success" onClick={sumar}>+</button>
                 </>
             ):(
                 <></>

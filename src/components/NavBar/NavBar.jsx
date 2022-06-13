@@ -48,16 +48,16 @@ const NavBar = () => {
                             MARCAS
                         </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a className="dropdown-item" href="#">Athos</a></li>
-                        <li><a className="dropdown-item" href="#">Atenea</a></li>
-                        <li><a className="dropdown-item" href="#">Lubriderm</a></li>
-                        <li><a className="dropdown-item" href="#">Nivea</a></li>
-                        <li><a className="dropdown-item" href="#">Nouvelle</a></li>
-                        <li><a className="dropdown-item" href="#">Samy</a></li>
-                        <li><a className="dropdown-item" href="#">Skala</a></li>
-                        <li><a className="dropdown-item" href="#">Tonos</a></li>
-                        <li><a className="dropdown-item" href="#">Visalia</a></li>
-                        <li><a className="dropdown-item" href="#">Vogue</a></li>
+                        <li className="dropdown-item nav-item"><Link to="marca/Athos">Athos</Link></li>
+                        <Link to="marca/Atenea"><li className="dropdown-item nav-item">Atenea</li></Link>
+                        <Link to="marca/Dolce Bella"><li className="dropdown-item">Dolce Bella</li></Link>
+                        <Link to="marca/Igora Royal"><li className="dropdown-item">Igora Royal</li></Link>
+                        <Link to="marca/Lubriderm"><li className="dropdown-item">Lubriderm</li></Link>
+                        <Link to="marca/Nivea"><li className="dropdown-item">Nivea</li></Link>
+                        <Link to="marca/Nouvelle"><li className="dropdown-item">Nouvelle</li></Link>
+                        <Link to="marca/Samy"><li className="dropdown-item">Samy</li></Link>
+                        <Link to="marca/Skala"><li className="dropdown-item">Skala</li></Link>
+                        <Link to="marca/Vogue"><li className="dropdown-item">Vogue</li></Link>
                     </ul>
                     </li>
                 </ul>

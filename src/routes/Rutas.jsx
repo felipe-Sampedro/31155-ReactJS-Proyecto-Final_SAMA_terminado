@@ -14,7 +14,8 @@ const Rutas = () => {
                   <Route index element={<ItemListContainer/>}/>
                   <Route path="/item-detail" element={<ItemDetailContainer/>}/>
                   <Route path="/item-detail/:id" element={<ItemDetailContainer/>}/>
-                  <Route path="/category/:categoryId" element={<ItemListContainer/>}/>                  
+                  <Route path="/category/:categoryId" element={<ItemListContainer/>}/> 
+                  <Route path="/marca/:brand" element={<ItemListContainer/>}/> 
                   <Route path="/cart" element={<Cart/>}/>                  
                   <Route path="*" element={<Error/>}/>
                 </Route>

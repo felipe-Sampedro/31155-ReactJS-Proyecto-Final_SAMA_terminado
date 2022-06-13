@@ -11,45 +11,70 @@ const Cart = () => {
 
   return (
     <>
-      {carrito.length > 0 ? carrito.map((item, index) => (
-        <div key={index} className='d-flex justify-content-center p-2'>
-          <img className="card-img-top mb-5 mb-md-0" src={item.imagenUrl} style={{ width: '100px', height: '100px' }} />
-          <p className='d-flex align-items-center' style={{ width: '350px' }}>{item.title}</p>
-          <p className='d-flex align-items-center ' style={{ width: '50px' }}>{item.cantidad}</p>
-          <p className='d-flex align-items-center' style={{ width: '75px' }}>${item.price}</p>
-          <p className='d-flex align-items-center' style={{ width: '75px' }}>${item.price * item.cantidad}</p>
+      <div className='container border my-5'>
+        <div className='row'>
+          <div className='border col-12 col-md-6 overflow-auto' style={{height:'60vh'}}>
+            {carrito.length > 0 ? carrito.map((item, index) => (
+              <div key={index} className='d-flex justify-content-center p-2 border m-2 my-3 align-items-center mx-2'>
+                <img className="card-img-top mb-5 mb-md-0" src={item.imagenUrl} style={{ width: '150px', height: '150px' }} />
+                <div>
+                  <div className='border' style={{width:"330px"}} >
+                   <p className='mb-0'><strong>{item.title}</strong></p>  
+                  </div> 
+                  <div className='border d-flex justify-content-between align-items-center px-2'>
+                    <p className='mb-0'>CANTIDAD</p>
+                    <strong>{item.cantidad}</strong>
+                  </div>
+                  <div className='border d-flex justify-content-between align-items-center px-2'>
+                    <p className='mb-0'>COSTO UNITARIO</p>
+                    <strong>${item.price}</strong>
+                  </div>
+                  <div className='border d-flex justify-content-between align-items-center px-2'>
+                    <p className='mb-0'>SUBTOTAL</p>
+                    <strong>${item.price * item.cantidad}</strong>
+                  </div>
+                </div>
+                <button className='btn btn-warning m-3 d-flex ' style={{ height: '40px' }} onClick={() => removeItem(item.id)}>Borrar</button>
+              </div>
+              
 
-          <button className='btn btn-warning m-3' style={{ height: '40px' }} onClick={() => removeItem(item.id)}>Quitar Item</button>
-        </div>
+            )) : 
+              <div>
+                <h1>EL CARRITO ESTA VACIO</h1>
+                <Link to="/">
+                  <button className='btn btn-info'>Volver a Comprar</button>
+                </Link>
+              </div>
+            }
+
+          </div>
+          
+          {carrito.length > 0 ? (
+            <div className='border col col-12 col-md-6 py-5'>
+                <Formulario total={totalcosto} compra={carrito} />
+            </div>) :
+          <></>
+        }
 
 
-      )) : <div>
-        <h1>El carrito esta vacio</h1>
-        <Link to="/">
-          <button className='btn btn-info'>Volver a Comprar</button>
-        </Link>
-      </div>
+        {carrito.length > 0 ? (
+          <div className='my-2'>
+            {/* <h1>Total: ${carrito.map((c) => c.price * c.cantidad).reduce((prev, curr) => prev + curr, 0)}</h1> */}
+            <h1>Total: ${totalcosto}</h1>
+          </div>) :
+          <></>
+        }
 
-      }
-
-      {carrito.length > 0 ? (
+        {carrito.length !== 0 ? 
         <div>
-          {/* <h1>Total: ${carrito.map((c) => c.price * c.cantidad).reduce((prev, curr) => prev + curr, 0)}</h1> */}
-          <h1>Total: ${totalcosto}</h1>
-        </div>) :
-        <></>
-
-      }
-
-      {carrito.length !== 0 ? 
-        <div>
-          <button className='btn btn-danger m-2' onClick={() => clear()}>Borrar Todo</button>  
-          <button className='btn btn-success m-2'>Terminar mi compra</button>
+          <button className='btn btn-danger m-1' onClick={() => clear()}>Borrar Todo</button>  
+          {/* <button className='btn btn-success m-2'>Terminar mi compra</button> */}
         </div> 
         : <p></p>}
-      <div className='m-5'>
-        <Formulario total={totalcosto} compra={carrito} />
+
+        </div>
       </div>
+
     </>
 
   )

@@ -11,7 +11,7 @@ const Card = ({id,categoryId,title,imagenUrl,description,price,stock}) => {
 
   return (
     <div className="card my-2" style={{width:"18rem"}}>
-        <img src={imagenUrl} className="card-img-top" style={{width:"286px", height:'288px'}} alt="..."/>
+        <img src={imagenUrl} className="card-img-top" style={{width:"100%", height:'260px'}} alt="..."/>
         <div className="card-body">
             <h5 className="card-title">{title}</h5>
 {/*             <p className="card-text" style={{height:'140px'}}>{description}</p> */}
