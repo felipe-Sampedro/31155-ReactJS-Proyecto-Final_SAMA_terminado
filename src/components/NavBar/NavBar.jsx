@@ -6,8 +6,6 @@ import CartWidget from '../CartWidget/CartWidget';
 import { GlobalContext } from '../CartContext/CartContext';
 
 
-
-
 const NavBar = () => {
 
     const {itemCount,carrito} = useContext(GlobalContext)
@@ -15,10 +13,9 @@ const NavBar = () => {
   return (
       
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
-        <div className="container-fluid">
+        <div className="container-fluid justify-content-between mx-3">
 {/*             <a className="navbar-brand" href="#"> */}
                 <Link to="/">
-
                     <img src={logo} alt="" width="250" height="75"/>
                 </Link>
 {/*             </a> */}
@@ -48,23 +45,26 @@ const NavBar = () => {
                             MARCAS
                         </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li className="dropdown-item nav-item"><Link to="marca/Athos">Athos</Link></li>
-                        <Link to="marca/Atenea"><li className="dropdown-item nav-item">Atenea</li></Link>
-                        <Link to="marca/Dolce Bella"><li className="dropdown-item">Dolce Bella</li></Link>
-                        <Link to="marca/Igora Royal"><li className="dropdown-item">Igora Royal</li></Link>
-                        <Link to="marca/Lubriderm"><li className="dropdown-item">Lubriderm</li></Link>
-                        <Link to="marca/Nivea"><li className="dropdown-item">Nivea</li></Link>
-                        <Link to="marca/Nouvelle"><li className="dropdown-item">Nouvelle</li></Link>
-                        <Link to="marca/Samy"><li className="dropdown-item">Samy</li></Link>
-                        <Link to="marca/Skala"><li className="dropdown-item">Skala</li></Link>
-                        <Link to="marca/Vogue"><li className="dropdown-item">Vogue</li></Link>
+                        <li className="dropdown-item"><Link to="marca/Athos" className='nav-link'>Athos</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Atenea" className='nav-link'>Atenea</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Dolce Bella" className='nav-link'>Dolce Bella</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Igora Royal" className='nav-link'>Igora Royal</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Lubriderm" className='nav-link'>Lubriderm</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Nivea" className='nav-link'>Nivea</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Nouvelle" className='nav-link'>Nouvelle</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Samy" className='nav-link'>Samy</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Skala" className='nav-link'>Skala</Link></li>
+                        <li className="dropdown-item"><Link to="marca/Vogue" className='nav-link'>Vogue</Link></li>
                     </ul>
                     </li>
                 </ul>
-                <div className='p-2 d-flex align-items-center justify-items-center' style={{width:"auto", fontSize:"40px",backgroundColor:"rgb(211,211,211)"}}>
+            </div>
+            <div className='p-1  mb-0' style={{fontSize:"35px",backgroundColor:"rgb(211,211,211)"}}>
+                <Link to='/cart' className='d-flex align-itmes-center text-center'>
                     <FaShoppingCart />
-                    <p className='p-2' style={{marginBottom:'0',fontSize:"25px"}}>{carrito.map((cw)=>cw.cantidad).reduce((prev, curr) => prev + curr, 0)}</p>
-                </div>
+                    {/* <p className='p-2' style={{marginBottom:'0',fontSize:"25px"}}>{carrito.map((cw)=>cw.cantidad).reduce((prev, curr) => prev + curr, 0)}</p> */}
+                    <CartWidget/>
+                </Link>
             </div>
         </div>
 

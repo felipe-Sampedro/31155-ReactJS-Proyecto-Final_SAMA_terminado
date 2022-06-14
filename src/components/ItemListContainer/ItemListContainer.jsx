@@ -10,6 +10,13 @@ const ItemListContainer = () => {
   const{brand} = useParams()
   const getData = async () =>{
   const col = collection(db,'productos')
+
+  const estilos = {
+    bgBody:{
+        backgroundImage: "Url https://www.freepik.com/premium-vector/hand-painted-pastel-sky-background_13561305.htm?query=backgorund&collectionId=410&&position=13&from_view=collections)",
+        backgroundAttachment: "fixed"
+    }
+  }
   
   try {
     
@@ -39,10 +46,10 @@ useEffect(() => {
 }, [categoryId,brand])
 
 return (
-    <div className='container-fluid bg-info'>ItemListContainer
-    <Link to= {'/Cart'}>Ver Carrito</Link>
+    <div className='container-fluid py-5 estilos.bgBody' style={{backgroundImage: `url("https://img.freepik.com/vector-gratis/fondo-lineas-dinamicas-estilo-papel_79603-1847.jpg?w=2000")`,backgroundSize:'cover', backgroundRepeat: 'no-repeat',backgroundAttachment:'Fixed'}}>
+    {/* <Link to= {'/Cart'}>Ver Carrito</Link> */}
         {/* <div className="d-flex justify-content-evenly flex-wrap p-4"> */}
-        <div className='row justify-content-evenly'>
+        <div className='row justify-content-center px-5'>
             {/* <div className='col-3'> */}
               <ItemList productos={productos}/>
             {/* </div> */}

@@ -10,7 +10,6 @@ const CartContext = ({children}) => {
     let qtyCompra = {}
     let itemCount = 0
 
-
     const AddToCart = (producto,cantidadcomprada) => {
         
         qtyCompra={...producto,qtyCompra:cantidadcomprada}
@@ -47,8 +46,20 @@ const CartContext = ({children}) => {
     }
 
 
+    const validarTodoLleno = (email,nombre,apellido,celular)=>{
+      if (email.length >0  && nombre.length >0 && apellido.length >0 && celular.length >0){
+        console.log('prueba Esta todo lleno'); 
+        return true
+      } 
+      else  {
+        console.log('prueba falta algo por llenar');
+        return false
+      }
+  }
+
+
   return (
-    <GlobalContext.Provider value= {{carrito,setCarrito,qtyCompra,itemCount,AddToCart,removeItem,clear,isInCart}} >
+    <GlobalContext.Provider value= {{carrito,setCarrito,qtyCompra,itemCount,AddToCart,removeItem,clear,isInCart,validarTodoLleno}} >
         {children}
     </GlobalContext.Provider>
   )

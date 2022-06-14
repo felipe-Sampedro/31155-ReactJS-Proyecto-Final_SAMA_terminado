@@ -8,7 +8,7 @@ const CartWidget = () => {
 
   return (
     <div>
-
+        <p className='p-2' style={{marginBottom:'0',fontSize:"25px"}}>{carrito.map((cw)=>cw.cantidad).reduce((prev, curr) => prev + curr, 0)}</p>
     </div>
   )
 }

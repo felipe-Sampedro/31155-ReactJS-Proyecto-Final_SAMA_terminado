@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { GlobalContext } from '../CartContext/CartContext'
 import Formulario from '../Formulario/Formulario'
 
-
 const Cart = () => {
 
   const { carrito, removeItem, clear, qtyCompra } = useContext(GlobalContext)
@@ -39,10 +38,10 @@ const Cart = () => {
               
 
             )) : 
-              <div>
+              <div className='m-5'>
                 <h1>EL CARRITO ESTA VACIO</h1>
                 <Link to="/">
-                  <button className='btn btn-info'>Volver a Comprar</button>
+                  <button className='btn btn-info'>VOLVER A COMPRAR</button>
                 </Link>
               </div>
             }
@@ -67,7 +66,7 @@ const Cart = () => {
 
         {carrito.length !== 0 ? 
         <div>
-          <button className='btn btn-danger m-1' onClick={() => clear()}>Borrar Todo</button>  
+          <button className='btn btn-danger m-1' onClick={() => clear()}>BORRAR TODO</button>  
           {/* <button className='btn btn-success m-2'>Terminar mi compra</button> */}
         </div> 
         : <p></p>}

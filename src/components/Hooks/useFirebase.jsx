@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import db from '../../service/firebase'
 import {collection,getDocs,getDoc,doc, addDoc,updateDoc} from 'firebase/firestore'
+import Swal from 'sweetalert2'
 import { GlobalContext } from '../CartContext/CartContext'
 /* import { async } from '@firebase/util' */
 
@@ -44,6 +45,15 @@ const useFirebase = () => {
             const order = await addDoc(col,datos)
             // setLoading(false)
             console.log(order.id);
+            const OC=order.id
+            Swal.fire({
+                title: 'Genial!',
+                text: 'Hemos recibido tu pedido con el ID: '+ <strong>order[id]</strong>,
+                imageUrl: 'https://www.betelevator.com/media/resize/800/600/Listados/pedidos/premontada.png',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
         } catch (error) {
             console.log('error al cargar');
         }

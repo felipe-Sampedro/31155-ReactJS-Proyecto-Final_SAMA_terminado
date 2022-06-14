@@ -38,9 +38,20 @@ const ItemDetail = ({item}) => {
                         {!isInCart(item.id) ?
                             <ItemCount item={item} onAdd={onAdd} quantityToAdd={cantCompra}/>
                         : 
-                            <Link to="/cart">
-                                <button className='btn btn-success m-2'>Ver carrito</button>
-                             </Link>
+                            <div>
+                                <div>
+                                    <Link to="/cart">
+                                        <button className='btn btn-success m-2'>VER CARRITO</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link to="/">
+                                        <button className='btn btn-secondary m-2'>VOLVER A COMPRAR</button>
+                                    </Link>
+                                </div>
+                            </div>
+                  
+                             
                             }
 
                         </div>
